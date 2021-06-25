@@ -11,17 +11,14 @@ jobs:
 
     - uses: actions/checkout@v2
 
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
+    - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
 
-    - name: Install Python dependencies
-      run: |
-        sudo apt install -y $(grep -o ^[^#][[:alnum:]-]* "packages.list")
-        python3 -m pip install --upgrade pip
-        pip3 install -r requirements.txt
+    - name: Install tools
+        run: python -m pip install --upgrade pip unittest
 
-    - name: Test with pytest
+    - name: Test with unittest
       run: |
         python3 -m unittest test.py

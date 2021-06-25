@@ -3,22 +3,19 @@ name: Tests
 on: push
 
 jobs:
-  build:
-    name: Run Python Tests
+  unit-tests:
     runs-on: ubuntu-latest
-
     steps:
+      - uses: actions/checkout@v2
 
-    - uses: actions/checkout@v2
-
-    - name: Setup python
+      - name: Setup python
         uses: actions/setup-python@v2
         with:
           python-version: 3.6
 
-    - name: Install tools
+      - name: Install tools
         run: python -m pip install --upgrade pip unittest
 
-    - name: Test with unittest
-      run: |
-        python3 -m unittest test.py
+      - name: Test with unittest
+        run: |
+          python3 -m unittest test.py

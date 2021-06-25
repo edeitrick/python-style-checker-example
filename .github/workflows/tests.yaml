@@ -14,7 +14,7 @@ jobs:
           python-version: 3.6
 
       - name: Install tools
-        run: python -m pip install --upgrade pip unittest
+        run: python -m pip install --upgrade pip pytest
 
       - name: Test with unittest
         run: |

@@ -24,5 +24,4 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest --exitfirst --verbose --failed-first \
-        --cov=. --cov-report html
+        python3 -m unittest test.py
